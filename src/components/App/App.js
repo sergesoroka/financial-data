@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Titles from '../../Titles';
+import Titles from '../Title/Title';
 import axios from 'axios';
 import * as ReactBootstrap from 'react-bootstrap';
 import paginationFactory from 'react-bootstrap-table2-paginator';
