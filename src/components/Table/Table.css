@@ -1,0 +1,39 @@
+.page-item.active .page-link, 
+.btn-secondary {
+    background-color: #28a745 !important;
+    border-color: #28a745 !important;
+}
+
+.page-link, 
+.dropdown-item a {
+    color: #28a745 !important;
+}
+
+.page-item.active .page-link {
+    color: #fff !important;
+}
+
+.table th, .table td {
+    border-top: 1px solid #28a745 !important;
+}
+
+/* .sortable:hover {
+    color: #28a745;
+} */
+
+.table-striped tbody tr:nth-of-type(odd){
+    background-color: #f0f8f2 !important;
+}
+.table-striped tbody tr:hover {
+    background-color: #d0fada !important;
+}
+.table tbody + tbody {
+    border-color: #fff !important;
+}
+.table-bordered th, .table-bordered td {
+    border: none !important;
+}
+
+thead {
+    border-bottom: 1px solid #28a745; 
+}

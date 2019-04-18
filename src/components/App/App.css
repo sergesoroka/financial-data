@@ -38,3 +38,18 @@
   padding: 2.5rem;
   border-radius: 4px;
 }
+
+.main-title {
+  color: #28a745;
+}
+
+.disabled-button {
+  display: none !important;
+}
+.next-button {
+  margin-left: 0.4rem;
+}
+
+.pages-buttons {
+  margin-bottom: 1rem;
+}

@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
-import Titles from '../Title/Title';
 import axios from 'axios';
-import * as ReactBootstrap from 'react-bootstrap';
-import paginationFactory from 'react-bootstrap-table2-paginator';
+import { Button } from 'react-bootstrap';
 
-import BootstrapTable from 'react-bootstrap-table-next';
+import Titles from '../Title/Title';
+// import Table from '../Table/Table';
+import TableTwo from '../Table/TableTwo';
+
 import './App.css'
 
 const API_KEY = process.env.REACT_APP_TABELES_API_KEY;
 
 class App extends Component {
   state = {
-    posts: []
+    posts: [],
+    page: 1
   }
+  
   componentDidMount() {
     axios.get(`https://cloud.iexapis.com/beta/tops?token=${API_KEY}`)
       .then(res => {
@@ -22,37 +25,33 @@ class App extends Component {
       
       })
   }
-  render() {
-    const DataList = this.state.posts
-    console.log(DataList)
- 
-    const columns = [{
-      dataField: 'volume',
-      text: 'Volume'
-    }, {
-      dataField: 'symbol',
-      text: 'Symbol'
-    }, {
-      dataField: 'sector',
-      text: 'Sector'
-    }, {
-      dataField: 'lastSalePrice',
-      text: 'Last Sale Price'
-    }];
-    
-    // const rowStyle = { backgroundColor: '#c8e6c9' }; 
-    
+  nextPageHandler() {
+    this.setState({
+      page: this.state.page + 1
+    })
+  }
+  previousPageHandler() {
+    this.setState({
+      page: this.state.page - 1
+    })
+  }
 
+ 
+  render() { 
+    const buttonStatus = this.state.page === 1 ? 'disabled-button' :'active-button'  
     return (
-      <div className="container">
-        <div className="main-panel">
-          <Titles />
-          
-          <BootstrapTable keyField='id' data={ DataList } columns={ columns } pagination={ paginationFactory() } striped hover condensed />
-    
-        </div>
-      </div>
-    );
+          <div className="container">
+            <div className="main-panel">
+              <Titles />
+              <div className='pages-buttons float-right'>
+                <Button variant="secondary" size="sm" className={buttonStatus} onClick={this.previousPageHandler.bind(this)}>Previous page</Button>
+                <Button variant="secondary" size="sm" className='next-button' onClick={this.nextPageHandler.bind(this)}>Next page</Button>
+              </div>
+              <TableTwo data={this.state.posts} page={this.state.page}/>
+              {/* <Table data={this.state.posts} /> */}
+            </div>
+          </div>
+        );
   }
 }
 

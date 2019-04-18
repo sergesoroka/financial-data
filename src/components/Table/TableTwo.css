@@ -1,0 +1,7 @@
+
+.table tbody + tbody {
+    border-color: #fff !important;
+}
+.table-bordered th, .table-bordered td {
+    border: none !important;
+}
