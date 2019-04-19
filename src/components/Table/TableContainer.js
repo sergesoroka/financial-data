@@ -1,16 +1,17 @@
+
 import React from 'react';
 import { Table } from 'react-bootstrap';
 
 import './Table.css'
 
-const TableTwo = (props) => {
+const TableContainer = (props) => {
 
 const dataTable = props.data.map((item, i) => {
-
+    const number = i + 1
     return (
             <tbody key={i}>
                 <tr>
-                    <td>{i}</td>
+                    <td>{number}</td>
                     <td>{item.symbol}</td>
                     <td>{item.sector}</td>
                     <td>{item.securityType}</td>
@@ -48,4 +49,4 @@ const dataTableSort = dataTable.slice(initialLimit, lastLimit)
         </div>
     )
 }
-export default TableTwo;
+export default TableContainer;

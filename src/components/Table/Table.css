@@ -33,6 +33,12 @@
 .table-bordered th, .table-bordered td {
     border: none !important;
 }
+.table tbody + tbody {
+    border-color: #fff !important;
+}
+.table-bordered th, .table-bordered td {
+    border: none !important;
+}
 
 thead {
     border-bottom: 1px solid #28a745; 
